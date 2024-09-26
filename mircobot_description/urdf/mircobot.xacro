@@ -1,0 +1,194 @@
+<?xml version="1.0" ?>
+<robot name="mircobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find mircobot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find mircobot_description)/urdf/mircobot.trans" />
+<xacro:include filename="$(find mircobot_description)/urdf/mircobot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="2.166333700984817e-17 1.0831668504924085e-17 0.02637499906536667" rpy="0 0 0"/>
+    <mass value="6.591351466924831"/>
+    <inertia ixx="0.006927" iyy="0.015083" izz="0.01887" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_front_left_1">
+  <inertial>
+    <origin xyz="-1.3877787807814457e-17 0.012499999999999997 0.0" rpy="0 0 0"/>
+    <mass value="0.5548838024402973"/>
+    <inertia ixx="0.000154" iyy="0.00025" izz="0.000154" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.05 -0.065 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/wheel_front_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.05 -0.065 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/wheel_front_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_back_left_1">
+  <inertial>
+    <origin xyz="1.3877787807814457e-17 0.012499999999999997 0.0" rpy="0 0 0"/>
+    <mass value="0.554883802440297"/>
+    <inertia ixx="0.000154" iyy="0.00025" izz="0.000154" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.05 -0.065 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/wheel_back_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.05 -0.065 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/wheel_back_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_front_right_1">
+  <inertial>
+    <origin xyz="-1.3877787807814457e-17 -0.012499999999999997 0.0" rpy="0 0 0"/>
+    <mass value="0.5548838024402969"/>
+    <inertia ixx="0.000154" iyy="0.00025" izz="0.000154" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.05 0.065 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/wheel_front_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.05 0.065 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/wheel_front_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_back_right_1">
+  <inertial>
+    <origin xyz="1.3877787807814457e-17 -0.012499999999999997 0.0" rpy="0 0 0"/>
+    <mass value="0.554883802440297"/>
+    <inertia ixx="0.000154" iyy="0.00025" izz="0.000154" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.05 0.065 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/wheel_back_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.05 0.065 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/wheel_back_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-1.7763568394002505e-17 -7.385233546074017e-18 0.010000000000000009" rpy="0 0 0"/>
+    <mass value="0.6042068071016569"/>
+    <inertia ixx="0.000205" iyy="0.000205" izz="0.00037" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="0.003320619451694526 -1.050959940980693e-29 0.009999999999914189" rpy="0 0 0"/>
+    <mass value="0.018782687791334844"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.08 -0.0 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.08 -0.0 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find mircobot_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="wheel_front_left_joint" type="continuous">
+  <origin xyz="0.05 0.065 0.025" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_front_left_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="wheel_back_left_joint" type="continuous">
+  <origin xyz="-0.05 0.065 0.025" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_back_left_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="wheel_front_right_joint" type="continuous">
+  <origin xyz="0.05 -0.065 0.025" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_front_right_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="wheel_back_right_joint" type="continuous">
+  <origin xyz="-0.05 -0.065 0.025" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_back_right_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.06" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="camera_joint" type="fixed">
+  <origin xyz="0.08 0.0 0.025" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+</robot>
