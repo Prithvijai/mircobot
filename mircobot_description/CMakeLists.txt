@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+find_package(rclpy REQUIRED)     # for python 
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -24,7 +25,7 @@ if(BUILD_TESTING)
 endif()
 
 install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME})
+  DESTINATION share/${PROJECT_NAME})    # since we created new folder 
   
 install(DIRECTORY urdf
   DESTINATION share/${PROJECT_NAME})
@@ -34,5 +35,7 @@ install(DIRECTORY meshes
   
 install(DIRECTORY config
   DESTINATION share/${PROJECT_NAME}) 
+
+#ament_python_install()    # for python 
 
 ament_package()
