@@ -3,7 +3,7 @@
 
 <xacro:include filename="$(find mircobot_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find mircobot_description)/urdf/mircobot.trans" />
-<xacro:include filename="$(find mircobot_description)/urdf/mircobot.gazebo" />
+
 <link name="base_link">
   <inertial>
     <origin xyz="2.166333700984817e-17 1.0831668504924085e-17 0.02637499906536667" rpy="0 0 0"/>
@@ -190,5 +190,20 @@
   <parent link="base_link"/>
   <child link="camera_1"/>
 </joint>
+
+<link name="camera_optical"/>
+
+<joint name="camera_optical_joint" type="fixed">
+  <parent link="camera_1"/>
+  <child link="camera_optical"/>
+  <origin xyz="0.1 0 0" rpy="0 0 0"/>
+</joint> 
+
+<xacro:include filename="$(find mircobot_description)/urdf/mircobot_gazebo.xacro"/>
+
+<!-- <xacro:include filename="$(find mircobot_description)/urdf/lidar.xacro" />  -->
+<!--Adding the control pulgin for the Lidar provided by the Gazebo-->
+
+
 
 </robot>
