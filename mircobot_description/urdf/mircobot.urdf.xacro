@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<robot name="mircobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    
+    <xacro:include filename="$(find mircobot_description)/urdf/materials.xacro" />
+    
+    <!-- <xacro:include filename="$(find mircobot_description)/urdf/mircobot.trans" /> -->
+    <xacro:include filename="$(find mircobot_description)/urdf/mircobot.xacro" />
+
+    <xacro:include filename="$(find mircobot_description)/urdf/mircobot_gazebo.xacro"/>
+
+    
+
+</robot>

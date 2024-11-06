@@ -11,7 +11,7 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
     share_dir = get_package_share_directory('mircobot_description')
 
-    xacro_file = os.path.join(share_dir, 'urdf', 'mircobot.xacro')
+    xacro_file = os.path.join(share_dir, 'urdf', 'mircobot.urdf.xacro')
     robot_description_config = xacro.process_file(xacro_file)
     robot_urdf = robot_description_config.toxml()
 
@@ -22,7 +22,14 @@ def generate_launch_description():
         default_value='True'
     )
 
+    sim_arg = DeclareLaunchArgument(
+        name='sim',
+        default_value='True',  # Default to True if not specified
+        description='Whether the launch is for simulation (True) or real robot (False)'
+    )
+
     show_gui = LaunchConfiguration('gui')
+    sim = LaunchConfiguration('sim')
 
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
@@ -57,6 +64,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         gui_arg,
+        sim_arg,
         robot_state_publisher_node,
         joint_state_publisher_node,
         joint_state_publisher_gui_node,
