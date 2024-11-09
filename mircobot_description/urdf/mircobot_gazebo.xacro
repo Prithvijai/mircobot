@@ -3,9 +3,9 @@
 
 <xacro:property name="body_color" value="Gazebo/Silver" />
 
-<gazebo>
+<!-- <gazebo>
   <plugin name="control" filename="libgazebo_ros_control.so"/>
-</gazebo>
+</gazebo> -->
 <gazebo reference="base_link">
   <material>Gazebo/Red</material>
   <mu1>0.2</mu1>
@@ -69,7 +69,7 @@
       </ray>
       <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
         <ros>
-          <argument>--ros-args --remap ~/out:=scan</argument>
+          <argument>~/out:=scan</argument>
       </ros>
       <output_type>sensor_msgs/LaserScan</output_type>
       <frame_name>lidar_1</frame_name>
@@ -77,12 +77,17 @@
   </sensor>
 </gazebo>
 
+<link name="camera_optical"/>
 
-<!-- <gazebo reference="camera_optical">
-  <material>Gazebo/Sliver</material>
-
-    <sensor type="camera" name="camera_1">
-        <pose> 0.2 0 0 1.57 0 1.57 </pose>
+<joint name="camera_optical_joint" type="fixed">
+  <parent link="camera_1"/>
+  <child link="camera_optical"/>
+  <origin xyz="0.01 0 0.01" rpy="0 0 0"/>
+</joint> 
+<!-- For adding normal camera use this  -->
+<gazebo reference="camera_1">
+    <sensor type="camera" name="camera">
+        <pose> 0 0 0 0 0 0 </pose>
         <visualize>true</visualize>
         <update_rate>30.0</update_rate>
         <camera name="head">
@@ -94,19 +99,19 @@
           </image>
           <clip>
             <near>0.05</near>
-            <far>30</far>
+            <far>8.0</far>
           </clip>
         </camera>
         <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-          <alwaysOn>true</alwaysOn>
-          <update_rate>0.0</update_rate>
-          <cameraName>mircobot/camera_optical</cameraName>
+          <!-- <alwaysOn>true</alwaysOn>
+          <update_rate>0.0</update_rate> -->
+          <!-- <cameraName>mircobot/camera_optical</cameraName>
           <imageTopicName>image_raw</imageTopicName>
-          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName> -->
           <frame_name>camera_optical</frame_name>
         </plugin>
     </sensor>
 
-</gazebo> -->
+</gazebo>
 
 </robot>

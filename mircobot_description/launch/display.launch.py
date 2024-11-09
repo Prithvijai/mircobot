@@ -19,7 +19,7 @@ def generate_launch_description():
 
     gui_arg = DeclareLaunchArgument(
         name='gui',
-        default_value='True'
+        default_value='True'  # True if you need joint movement verification 
     )
 
     sim_arg = DeclareLaunchArgument(
