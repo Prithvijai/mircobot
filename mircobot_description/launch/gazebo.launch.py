@@ -14,13 +14,13 @@ def generate_launch_description():
     display_launch = IncludeLaunchDescription(
                     PythonLaunchDescriptionSource([os.path.join(
                         get_package_share_directory("mircobot_description"),'launch','display.launch.py'
-                    )]), launch_arguments={'use_sim_time': 'true','use_gui':'false'}.items()
+                    )]), launch_arguments={'use_sim_time': 'True'}.items()
         )
     
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py'
-                    )]), launch_arguments={}.items()
+                    )]), launch_arguments={'use_sim_time': 'True'}.items()
              )
 
     urdf_spawn_node = Node(
@@ -33,8 +33,22 @@ def generate_launch_description():
         output='screen'
     )
 
+    diff_drive = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['diff_cont']
+    )
+
+    joint_broad = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['joint_broad']
+    )
+
     return LaunchDescription([
         display_launch,
         gazebo,
         urdf_spawn_node,
+        diff_drive,
+        joint_broad
     ])

@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="mircobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-
 <link name="base_link">
   <inertial>
     <origin xyz="2.166333700984817e-17 1.0831668504924085e-17 0.02637499906536667" rpy="0 0 0"/>

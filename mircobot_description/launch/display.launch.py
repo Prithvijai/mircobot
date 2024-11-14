@@ -22,36 +22,41 @@ def generate_launch_description():
         default_value='True'  # True if you need joint movement verification 
     )
 
-    sim_arg = DeclareLaunchArgument(
-        name='sim',
-        default_value='True',  # Default to True if not specified
-        description='Whether the launch is for simulation (True) or real robot (False)'
+    sim_time_arg = DeclareLaunchArgument(
+        name='use_sim_time',
+        default_value='True',
+        description='Use simulation time if true'
     )
 
+
     show_gui = LaunchConfiguration('gui')
-    sim = LaunchConfiguration('sim')
+    # sim = LaunchConfiguration('sim')
+    use_sim_time = LaunchConfiguration('use_sim_time')
 
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         name='robot_state_publisher',
         parameters=[
-            {'robot_description': robot_urdf}
+            {'robot_description': robot_urdf,'use_sim_time' : use_sim_time}
         ]
     )
 
     joint_state_publisher_node = Node(
-        condition=UnlessCondition(show_gui),
         package='joint_state_publisher',
         executable='joint_state_publisher',
-        name='joint_state_publisher'
+        name='joint_state_publisher',
+        parameters=[{'use_sim_time' : use_sim_time}]
+        #output='screen'
+        
     )
 
     joint_state_publisher_gui_node = Node(
         condition=IfCondition(show_gui),
         package='joint_state_publisher_gui',
         executable='joint_state_publisher_gui',
-        name='joint_state_publisher_gui'
+        name='joint_state_publisher_gui',
+        output='screen'
     )
 
     rviz_node = Node(
@@ -64,9 +69,9 @@ def generate_launch_description():
 
     return LaunchDescription([
         gui_arg,
-        sim_arg,
+        sim_time_arg,
         robot_state_publisher_node,
-        joint_state_publisher_node,
-        joint_state_publisher_gui_node,
+        #joint_state_publisher_node,
+        #joint_state_publisher_gui_node,
         rviz_node
     ])

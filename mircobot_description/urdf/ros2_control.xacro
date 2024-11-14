@@ -5,7 +5,7 @@
         <hardware>
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         </hardware>
-        <joint name="wheel_front_left_1">
+        <joint name="wheel_front_left_joint">
             <command_interface name="velocity">
                 <param name="min">-10</param>
                 <param name="max">10</param>
@@ -15,7 +15,7 @@
 
         </joint>
 
-        <joint name="wheel_back_left_1">
+        <joint name="wheel_back_left_joint">
             <command_interface name="velocity">
                 <param name="min">-10</param>
                 <param name="max">10</param>
@@ -25,7 +25,7 @@
 
         </joint>
 
-        <joint name="wheel_front_right_1">
+        <joint name="wheel_front_right_joint">
             <command_interface name="velocity">
                 <param name="min">-10</param>
                 <param name="max">10</param>
@@ -35,7 +35,7 @@
 
         </joint>
 
-        <joint name="wheel_back_right_1">
+        <joint name="wheel_back_right_joint">
             <command_interface name="velocity">
                 <param name="min">-10</param>
                 <param name="max">10</param>
@@ -49,7 +49,7 @@
 
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-            <parameters></parameters>
+            <parameters>$(find mircobot_description)/config/my_controllers.yaml</parameters>
         </plugin>
     </gazebo>
 

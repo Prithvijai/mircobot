@@ -8,37 +8,37 @@
 </gazebo> -->
 <gazebo reference="base_link">
   <material>Gazebo/Red</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
+  <mu1 value="0.001"/>
+  <mu2 value="0.001"/>
   <self_collide>true</self_collide>
   <gravity>true</gravity>
 </gazebo>
 
 <gazebo reference="wheel_front_left_1">
   <material>Gazebo/Black</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
+  <mu1 value="0.001"/>
+  <mu2 value="0.001"/>
   <self_collide>true</self_collide>
 </gazebo>
 
 <gazebo reference="wheel_back_left_1">
   <material>Gazebo/Black</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
+  <mu1 value="0.5"/>
+  <mu2 value="0.5"/>
   <self_collide>true</self_collide>
 </gazebo>
 
 <gazebo reference="wheel_front_right_1">
   <material>Gazebo/Black</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
+  <mu1 value="0.001"/>
+  <mu2 value="0.001"/>
   <self_collide>true</self_collide>
 </gazebo>
 
 <gazebo reference="wheel_back_right_1">
   <material>Gazebo/Black</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
+  <mu1 value="0.5"/>
+  <mu2 value="0.5"/>
   <self_collide>true</self_collide>
 </gazebo>
 
