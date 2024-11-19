@@ -13,7 +13,7 @@ def generate_launch_description():
     
     display_launch = IncludeLaunchDescription(
                     PythonLaunchDescriptionSource([os.path.join(
-                        get_package_share_directory("mircobot_description"),'launch','rsp.launch.py'
+                        get_package_share_directory("mircobot_description"),'launch','display.launch.py'
                     )]), launch_arguments={'use_sim_time': 'True'}.items()
         )
     
