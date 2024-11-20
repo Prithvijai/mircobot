@@ -14,13 +14,15 @@ def generate_launch_description():
     display_launch = IncludeLaunchDescription(
                     PythonLaunchDescriptionSource([os.path.join(
                         get_package_share_directory("mircobot_description"),'launch','rsp.launch.py'
-                    )]), launch_arguments={'use_sim_time': 'True'}.items()
+                    )]), launch_arguments={'use_sim_time': 'true','use_ros2_control': 'true'}.items()
         )
+    gazebo_params_path = os.path.join(
+                  get_package_share_directory("mircobot_description"),'config','gazebo_params.yaml')
     
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py'
-                    )]), launch_arguments={'use_sim_time': 'True'}.items()
+                    )]), launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path }.items()
              )
 
     urdf_spawn_node = Node(

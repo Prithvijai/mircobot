@@ -14,13 +14,13 @@ def generate_launch_description():
 
     # Check if we're told to use sim time
     use_sim_time = LaunchConfiguration('use_sim_time')
-    #use_ros2_control = LaunchConfiguration('use_ros2_control')
+    use_ros2_control = LaunchConfiguration('use_ros2_control')
 
     # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory('mircobot_description'))
     xacro_file = os.path.join(pkg_path,'urdf','mircobot.urdf.xacro')
-    robot_description_config = xacro.process_file(xacro_file).toxml()
-    #robot_description_config = Command(['xacro ', xacro_file, ' sim_mode:=', use_sim_time])
+    #robot_description_config = xacro.process_file(xacro_file).toxml()
+    robot_description_config = Command(['xacro ', xacro_file, ' use_ros2_control:=', use_ros2_control])
     
     # Create a robot_state_publisher node
     params = {'robot_description': robot_description_config, 'use_sim_time': use_sim_time}
@@ -44,8 +44,12 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument(
             'use_sim_time',
-            default_value='false',
+            default_value='true',
             description='Use sim time if true'),
+        DeclareLaunchArgument(
+            'use_ros2_control',
+            default_value='true',
+            description='Use ros2_control if true'),
         node_robot_state_publisher,
         rviz_view
     ])

@@ -8,6 +8,8 @@
             <!-- Wheel Information -->
             <left_joint>wheel_back_left_joint</left_joint>
             <right_joint>wheel_back_right_joint</right_joint>
+            <!-- <front_left_joint>wheel_front_left_joint</front_left_joint>
+            <front_right_joint>wheel_front_right_joint</front_right_joint> -->
             <wheel_separation>0.13</wheel_separation>
             <wheel_diameter>0.06</wheel_diameter>
     
