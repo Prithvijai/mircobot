@@ -127,10 +127,6 @@ Visualization Manager:
           Value: true
         wheel_back_right_1:
           Value: true
-        wheel_front_left_1:
-          Value: true
-        wheel_front_right_1:
-          Value: true
       Marker Scale: 0.5
       Name: TF
       Show Arrows: true
@@ -146,10 +142,6 @@ Visualization Manager:
           wheel_back_left_1:
             {}
           wheel_back_right_1:
-            {}
-          wheel_front_left_1:
-            {}
-          wheel_front_right_1:
             {}
         odom:
           {}

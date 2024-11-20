@@ -9,8 +9,8 @@
 
     <xacro:include filename="$(find mircobot_description)/urdf/mircobot_gazebo.xacro"/>
 
-    <!-- <xacro:include filename="$(find mircobot_description)/urdf/ros2_control.xacro"/> -->
-    <xacro:include filename="$(find mircobot_description)/urdf/gazebo_control.xacro"/>
+    <xacro:include filename="$(find mircobot_description)/urdf/ros2_control.xacro"/>
+    <!-- <xacro:include filename="$(find mircobot_description)/urdf/gazebo_control.xacro"/> -->
 
     <!-- <xacro:include filename="$(find mircobot_description)/urdf/mircobot_transmission.xacro"/> -->
     

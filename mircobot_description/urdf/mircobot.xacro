@@ -22,6 +22,14 @@
   </collision>
 </link>
 
+<joint name="wheel_front_left_joint" type="continuous">
+  <origin xyz="0.05 0.065 0.025" rpy="-1.5708 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_front_left_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+
 <link name="wheel_front_left_1">
   <inertial>
     <origin xyz="-1.3877787807814457e-17 0.012499999999999997 0.0" rpy="0 0 0"/>
@@ -29,19 +37,27 @@
     <inertia ixx="0.000154" iyy="0.00025" izz="0.000154" ixy="-0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
-    <origin xyz="-0.05 -0.065 -0.025" rpy="0 0 0"/>
+    <origin xyz="-0.05 -0.025 0.090" rpy="-1.5708 0 0"/>
     <geometry>
       <mesh filename="file://$(find mircobot_description)/meshes/wheel_front_left_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.05 -0.065 -0.025" rpy="0 0 0"/>
+    <origin xyz="-0.05 -0.025 0.090" rpy="-1.5708 0 0"/>
     <geometry>
       <mesh filename="file://$(find mircobot_description)/meshes/wheel_front_left_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
+
+
+<joint name="wheel_back_left_joint" type="continuous">
+  <origin xyz="-0.05 0.065 0.025" rpy="-1.5708 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_back_left_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
 
 <link name="wheel_back_left_1">
   <inertial>
@@ -50,19 +66,26 @@
     <inertia ixx="0.000154" iyy="0.00025" izz="0.000154" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.05 -0.065 -0.025" rpy="0 0 0"/>
+    <origin xyz="0.05 -0.025 0.090" rpy="-1.5708 0 0"/>
     <geometry>
       <mesh filename="file://$(find mircobot_description)/meshes/wheel_back_left_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.05 -0.065 -0.025" rpy="0 0 0"/>
+    <origin xyz="0.05 -0.025 0.090" rpy="-1.5708 0 0"/>
     <geometry>
       <mesh filename="file://$(find mircobot_description)/meshes/wheel_back_left_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
+
+<joint name="wheel_front_right_joint" type="continuous">
+  <origin xyz="0.05 -0.065 0.025" rpy="-1.5708 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_front_right_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
 
 <link name="wheel_front_right_1">
   <inertial>
@@ -71,19 +94,26 @@
     <inertia ixx="0.000154" iyy="0.00025" izz="0.000154" ixy="0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="-0.05 0.065 -0.025" rpy="0 0 0"/>
+    <origin xyz="-0.05 -0.025 -0.065" rpy="-1.5708 0 0"/>
     <geometry>
       <mesh filename="file://$(find mircobot_description)/meshes/wheel_front_right_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.05 0.065 -0.025" rpy="0 0 0"/>
+    <origin xyz="-0.05 -0.025 -0.065" rpy="-1.5708 0 0"/>
     <geometry>
       <mesh filename="file://$(find mircobot_description)/meshes/wheel_front_right_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
+
+<joint name="wheel_back_right_joint" type="continuous">
+  <origin xyz="-0.05 -0.065 0.025" rpy="-1.5708 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_back_right_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
 
 <link name="wheel_back_right_1">
   <inertial>
@@ -92,19 +122,25 @@
     <inertia ixx="0.000154" iyy="0.00025" izz="0.000154" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.05 0.065 -0.025" rpy="0 0 0"/>
+    <origin xyz="0.05 0.025 0.09" rpy="1.5708 0 0"/>
     <geometry>
       <mesh filename="file://$(find mircobot_description)/meshes/wheel_back_right_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.05 0.065 -0.025" rpy="0 0 0"/>
+    <origin xyz="0.05 0.025 0.09" rpy="1.5708 0 0"/>
     <geometry>
       <mesh filename="file://$(find mircobot_description)/meshes/wheel_back_right_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.06" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
 
 <link name="lidar_1">
   <inertial>
@@ -127,6 +163,12 @@
   </collision>
 </link>
 
+<joint name="camera_joint" type="fixed">
+  <origin xyz="0.08 0.0 0.025" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
 <link name="camera_1">
   <inertial>
     <origin xyz="0.003320619451694526 -1.050959940980693e-29 0.009999999999914189" rpy="0 0 0"/>
@@ -148,59 +190,12 @@
   </collision>
 </link>
 
-<joint name="wheel_front_left_joint" type="continuous">
-  <origin xyz="0.05 0.065 0.025" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="wheel_front_left_1"/>
-  <axis xyz="0.0 1.0 0.0"/>
-</joint>
-
-<joint name="wheel_back_left_joint" type="continuous">
-  <origin xyz="-0.05 0.065 0.025" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="wheel_back_left_1"/>
-  <axis xyz="0.0 1.0 0.0"/>
-</joint>
-
-<joint name="wheel_front_right_joint" type="continuous">
-  <origin xyz="0.05 -0.065 0.025" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="wheel_front_right_1"/>
-  <axis xyz="0.0 -1.0 0.0"/>
-</joint>
-
-<joint name="wheel_back_right_joint" type="continuous">
-  <origin xyz="-0.05 -0.065 0.025" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="wheel_back_right_1"/>
-  <axis xyz="0.0 -1.0 0.0"/>
-</joint>
-
-<joint name="lidar_joint" type="fixed">
-  <origin xyz="0.0 0.0 0.06" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="lidar_1"/>
-</joint>
-
-<joint name="camera_joint" type="fixed">
-  <origin xyz="0.08 0.0 0.025" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="camera_1"/>
-</joint>
-
-<!-- <link name="camera_optical"/>
-
 <joint name="camera_optical_joint" type="fixed">
   <parent link="camera_1"/>
   <child link="camera_optical"/>
-  <origin xyz="0.1 0 0" rpy="0 0 0"/>
-</joint>  -->
+  <origin xyz="0.01 0 0.01" rpy="0 0 0"/>
+</joint> 
 
-<!-- <xacro:include filename="$(find mircobot_description)/urdf/mircobot_gazebo.xacro"/> -->
-
-<!-- <xacro:include filename="$(find mircobot_description)/urdf/lidar.xacro" />  -->
-<!--Adding the control pulgin for the Lidar provided by the Gazebo-->
-
-
+<link name="camera_optical"/>
 
 </robot>

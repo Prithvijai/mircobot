@@ -46,8 +46,8 @@ def generate_launch_description():
         package='joint_state_publisher',
         executable='joint_state_publisher',
         name='joint_state_publisher',
-        parameters=[{'use_sim_time' : use_sim_time}]
-        #output='screen'
+        #parameters=[{'use_sim_time' : use_sim_time}],
+        output='screen'
         
     )
 
@@ -72,5 +72,6 @@ def generate_launch_description():
         sim_time_arg,
         robot_state_publisher_node,
         joint_state_publisher_node,
+        joint_state_publisher_gui_node,
         rviz_node
     ])
